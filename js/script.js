@@ -15,6 +15,11 @@ console.log('JS OK')
 7.stampo in pagina il recap dei datiinseriti(km,età) e il prezzo del biglietto (con 2 decimali)
 */
 
+//fase di preparazione
+const priceKm = 0.21;
+let discount = null;
+const message = 'il prezzo base del biglietto è di €';
+
 const button = document.getElementById('confirm');
 console.log('bottone conferma', typeof button);
 
@@ -24,9 +29,23 @@ const ageField = document.getElementById('user-age');
 console.log(ageField);
 
 button.addEventListener('click', function(){
-    //recupero i valori dal form
+    //recupero i valori dall'input
     const kmValue = parseInt(kmField.value.trim());
-    const ageValue = ageField.value.trim();
+    const ageValue = parseInt(ageField.value.trim());
+
     //stampo i valori in console
     console.log('km ' + kmValue, 'età ' + ageValue);
+
+    //calolo il costo del biglietto
+    const basePrice = kmValue * priceKm;
+    let finalPrice = basePrice;
+
+    if (ageValue >= 65){
+        finalPrice *= 0.6;
+    } else if (ageValue<18){
+        finalPrice *= 0.8;
+    }
+
+    //stampo il costo del biglietto in console
+    console.log(message + finalPrice.toFixed(2));
 })
