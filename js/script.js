@@ -18,15 +18,21 @@ console.log('JS OK')
 //fase di preparazione
 const priceKm = 0.21;
 let discount = null;
-const message = 'il prezzo base del biglietto è di €';
+const message = 'il prezzo del biglietto è di €';
 
 const button = document.getElementById('confirm');
 console.log('bottone conferma', typeof button);
 
 const kmField = document.getElementById('user-km');
 console.log(kmField);
+
 const ageField = document.getElementById('user-age');
 console.log(ageField);
+
+const priceTicketElement = document.getElementById('price-ticket');
+console.log(priceTicketElement);
+
+
 
 button.addEventListener('click', function(){
     //recupero i valori dall'input
@@ -46,6 +52,8 @@ button.addEventListener('click', function(){
         finalPrice *= 0.8;
     }
 
-    //stampo il costo del biglietto in console
+    //stampo il costo del biglietto in console e in pagina
     console.log(message + finalPrice.toFixed(2));
+    priceTicketElement.innerText = message + finalPrice.toFixed(2);
+
 })
