@@ -14,7 +14,7 @@ console.log('JS OK')
 6.dopo aver inserito un form in pagina svolgo i passaggi dal 2 al 4
 7.stampo in pagina il recap dei datiinseriti(km,età) e il prezzo del biglietto (con 2 decimali)
 */
-// ! milestone 1
+
 //fase di preparazione
 const priceKm = 0.21;
 let discount = null;
@@ -32,8 +32,16 @@ console.log(ageField);
 const priceTicketElement = document.getElementById('price-ticket');
 console.log(priceTicketElement);
 
+const kmTicketElement = document.getElementById('km-ticket');
+console.log(kmTicketElement);
 
+const ageTicketElement = document.getElementById('age-ticket');
+console.log(ageTicketElement);
 
+const displayTicketElement = document.getElementById('display-ticket');
+console.log(displayTicketElement);
+
+//fase elaorazione
 button.addEventListener('click', function(){
     //recupero i valori dall'input
     const kmValue = parseInt(kmField.value.trim());
@@ -52,8 +60,15 @@ button.addEventListener('click', function(){
         finalPrice *= 0.8;
     }
 
-    //stampo il costo del biglietto in console e in pagina
+    //fase output
     console.log(message + finalPrice.toFixed(2));
     priceTicketElement.innerText = message + finalPrice.toFixed(2);
+    kmTicketElement.innerText = 'distanza percorso: ' + kmValue;
+    ageTicketElement.innerText = 'età inserita: ' + ageValue;
 
+    const isNone = displayTicketElement.classList.contains('d-none');
+    
+    if (isNone) {
+        displayTicketElement.classList.remove('d-none');
+    }
 })
