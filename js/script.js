@@ -14,7 +14,7 @@ console.log('JS OK')
 6.dopo aver inserito un form in pagina svolgo i passaggi dal 2 al 4
 7.stampo in pagina il recap dei datiinseriti(km,età) e il prezzo del biglietto (con 2 decimali)
 */
-
+// ! milestone 1
 //fase di preparazione
 const priceKm = 0.21;
 let discount = null;
